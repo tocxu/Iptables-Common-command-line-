@@ -42,12 +42,8 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 <li>REJECT</li>: tương tự DROP nhưng nó sẽ gởi trả lại cho phía người gởi một thông báo lỗi rằng gói tin đã  bị chặn và loại bỏ
 <li>MASQUERADE</li>: dùng để thực hiện Source Network address Translation. Mặc định thì địa chỉ IP nguồn sẽ giống như IP nguồn của firewall
 ###2.3 Các tham số chuyển mạch (switching)
-<ul> 
-**-t <table>** 
-: Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng
-</ul>
-<ul> 
-**-A chain** --append:  nối thêm một luật vào cuối chuỗi (chain) </ul>
+<ul> -t [table] --table : Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng</ul>
+<ul> -A chain --append:  nối thêm một luật vào cuối chuỗi (chain) </ul>
 <ul> -C chain --check: kiểm tra luật đã có chưa </ul>
 <ul> -D chain rulenum --delete: xóa luật nào đó trong chain</ul>
 <ul> -F [chain] --flush : xóa hết các luật có trong bảng hoặc trong chain nào đó</ul>
@@ -70,6 +66,93 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 #3. 20 ví dụ về IPTABLES cho New SysAdmins
 ##3.1 Hiển thị trạng thái của Firewall
 **iptables -L -n -v**
+Hiển thịtheo số thứ tự luật:
+**iptables -L -n -v --line-numbers**
+Hiển thị rules trong chain nào đó:
+**iptables -L INPUT -n -v**
+**iptables -L OUTPUT -n -v --line-numbers**
+#3.2 Xóa luật
+Trước tiên hiện luật theo số thứ tự để biết luật ta muốn xóa ở vịtrí dòng (line) bao nhiêu
+**iptables -L INPUT -n --line-numbers**
+**iptables -L OUTPUT -n --line-numbers |less**
+**iptables -L OUTPUT -n --line-numbers | grep 202.54.1.1**
+Ví dụ muốn xóa luật thứ 4 :
+**iptables -D INPUT 4**
+Hoặc xóa theo địa chỉ IP:
+**iptables -D INPUT -s 202.54.1.1 -j DROP**
+##3.3 Thêm Luật mới
+Ta cũng hiển thị luật đã có theo dòng:
+**iptables -L INPUT -n -line-numbers**
+Thêm luật vào giữa 1 và 2:
+**iptables -I INPUT 2 -s 202.54.1.2 -j DROP**
+Xem lại cập nhật:
+**iptables -L INPUT -n --line-numbers**
+##3.4 Lưu luật lại
+Trên CentOS thì iptables là một service nên có thể dùng lệnh **iptables service save**
+Còn Ubuntu ta sử dụng:
+**iptables-save > /root/myccativefirewall.rules**
+##3.5 Khôi phục lại luật
+**iptables-restore < /root/myactivefirewall.rules/**
+##3.6 Thiết đặt chính sách mặc định firewall 
+Chặn và loại bỏ tất cả traffic
+**iptables -P INPUT DROP**
+**iptables -P OUTPUT DROP**
+**iptables -P FORWARD DROP**
+ChỉBlock traffic đến thêm luật:
+**iptables -A INPUT -m state --state NEW, ESTABLISHED -j ACCEPT**
+###3.4 Drop địa chỉ ip riêng trên giao diện public
+**iptables -A INPUT -i eth1 -s 192.168.0.0/24 -j DROP**
+**iptables A INPUT -i eth1 -s 10.0.0.0/8 -j DROP**
+Giải địa chỉ IPv4 cho địa chỉ Private Network (hãy chắc chắn rằng bạn block chúng trên public interface)
+<li>10.0.0.0/8 -j(A)</li>
+<li>172.16.0.0/12 (B)</li>
+<li>192.168.0.0/16 (C)</li>
+<li>224.0.0.0/4 (MULTICAST D)</li>
+<li>224.0.0.0/5(E)</li>
+<li>127.0.0.0/8 (LOOPBACK)</li>
+###3.5 Block một IP
+**iptables -A INPUT -s 1.2.3.4 -j DROP**
+**iptables -A INPUT -s 192.168.0.0/24 -j DROP**
+###3.6 Block Incoming Port Requests (Block Port)
+**iptables -A INPUT -p tcp --dport 80 -j DROP**
+**iptables -A INPUT -i eth1 -p tcp -s 192.168.1.0/24 --dport 80 -j DROP**
+###3.7 Block Outgoing IP Address
+Block theo tên miền
+**host -t a cyberciti.biz**
+Block với địa chỉ IP
+**iptables -A OUTPUT -d 75.126.153.206 -j DROP**
+Bạn có thể sử dụng bằng một subnet:
+**iptables -A OUTPUT -d 192.168.1.0/24 -j DROP**
+**iptables -A OUTPUT -o eth1 -d 192.168.1.0/24 -j DROP**
+Để tìm ip của một tên miền:
+**host -t a wwư.facebook.com**
+**whois 69.171.228.40 | grep CIDR**
+ 
+**iptables -A OUTPUT -p tcp -d 69.171.224.0/19 -j DROP**
+**iptables -A OUTPUT -p tcp -d facebook.com -j DROP**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
