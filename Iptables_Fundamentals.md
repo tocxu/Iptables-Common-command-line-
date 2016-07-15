@@ -11,21 +11,6 @@ Git này Tocxu viết khi tìm hiểu và thực hành với ubuntu desktop 15.1
 	*yum install iptables*
 ##2.2 Structure
 the Iptable of iptables is: Tables -> Chains -> Rules
-*Tables 1*
-| Chain1 | Chain 2 |
-|--------|---------|
-| ->Rule 1 | ->Rule 1 |
-| ->Rule 2 |
-
-*Table 2*
-| Chain 1 |
-|---------|
-|-> Rule 1|
-|---------|
-|Chain 2|
-|-------|
-|-> Rule 1|
-|-> Rule 2|
 Iptables có 4 bảng dựng sẵn (bult-in tables)
 ###2.2.1. FILTER Table
 Chịu trách nhiệm lọc gói dữ liệu. Nó gồm có 3 quy tắc nhỏ (chain):
@@ -48,8 +33,7 @@ Chịu trách nhiệm thay đổi các bits chất lượng dịch vụ trong TC
 Các trường hợp  ngoại lệ cấu hình (congiguration excemptions)
 <li>PREROUTING</li>
 <li>OUTPUT</li>
-###2.3 IPTABLES RULES
-*Target Values*
+####2.2.5 Target Values
 Target là một hành động sẽ diễn ra khi một gói dữ liệu được kiểm tra và phù hợp với một yêu cầu nào đó. Khi một yêu cầu nào đó đã được nhận dạng, gói dữ liệu cần nhảy (-j ~jump) để thực hiện các xử lý tiếp theo.
 <li>ACCEPT</li>: chấp nhận gói tin
 <li>DROP</li>:loại bỏ gói tin
@@ -57,6 +41,46 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 <li>RETURN</li>: firewall sẽ dừng thực hiện những tập luật tiếp theo trong chuỗi quy tắc hiện hành đối với gói tin này. việc kiểm tra sẽ được trả lại cho chuỗi gọi (the calling chain)
 <li>LOG</li>: thông tin gói sẽ được đưa vào syslog để kiểm tra. Iptables tiếp tục xử lý gói tin với luật tiếp theo
 <li>REJECT</li>: tương tự DROP nhưng nó sẽ gởi trả lại cho phía người gởi một thông báo lỗi rằng gói tin đã  bị chặn và loại bỏ
+<li>MASQUERADE</li>: dùng để thực hiện Source Network address Translation. Mặc định thì địa chỉ IP nguồn sẽ giống như IP nguồn của firewall
+###2.3 Các tham số chuyển mạch (switching)
+<ul> **-t <table>**: Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng</ul>
+<ul>**-A chain** --append:  nối thêm một luật vào cuối chuỗi (chain) </ul>
+<ul>**-C chain** --check: kiểm tra luật đã có chưa </ul>
+<ul>**-D chain rulenum** --delete: xóa luật nào đó trong chain</ul>
+<ul>**-F [chain]** --flush : xóa hết các luật có trong bảng hoặc trong chain nào đó</ul>
+<ul>**-E old-chain new-chain** --rename-chain: thay tên chain</ul>
+<ul>**-I chain [rulenum]** --insert: thêm vài chain một luật mới ở vị trí chỉ đinh (mặc định 1 là luật đầu tiên)</ul>
+<ul>**-L [chain [rulenum]]** --list-rule: liệt kê các luật có trong một chain hoặc tất cả các chain</ul>
+<ul>**-N chain** --new: tạo một chain mới do người dùng định nghĩa </ul>
+<ul>**-P chain target** --policy: thay đổi luật của chain sang một target,(khi muốn đổi tất cả các luật trong chain nào đó có cùng một target)</ul>
+<ul>**-R chain rulenum** --replace : thay đổi thứ tự luật trong chain</ul>
+<ul>**-S [chain [rulenum]]** --list-rules: in (print) các quy tắc vào trong một chain hoặc tất cả các chain</ul>
+<ul>**-Z [chain [rulenum]]** --zero </ul>
+<ul>**-X [chain]** --delete-chain: xóa chain do người dùng định nghĩa</ul>
+###Các tham số OPtion
+<ul>**-j target** --jump: hành động cho luật</ul>
+<ul>**-v** --verbose: hiển thị thông tin chi tiết cho luật</ul>
+<ul>**-n** --numeric: hiển thị địa chỉ và cổng dưới dạng số</ul>
+<ul> **-s address[/mask][...]** --source: địa chỉ nguồn</ul>
+<ul> **-d address[/mask][...]** --destiantion: địa chỉ đích</ul>
+<ul> **-p proto** --protocol: giao thức áp dụng</ul>
+
+
+
+
+
+#3. 20 ví dụ về IPTABLES cho New SysAdmins
+##3.1 Hiển thị trạng thái của Firewall
+**iptables -L -n -v**
+trong đó:
+<li>**-L**: hiện danh sách các luật hiện có</li>
+<li>**-n**: hiện dưới dạng số</li>
+<li>**-v**: hiện các luật một cách chi tiết</li>
+<ul> -L là 
+
+
+
+
 
 
 
