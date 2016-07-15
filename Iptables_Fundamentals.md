@@ -25,7 +25,7 @@ NAT - Network Address translation
 ###2.2.3 MANGLE Table: 
 Chịu trách nhiệm thay đổi các bits chất lượng dịch vụ trong TCP header như TOS (type of service), TTL (time to live), và MARK
 <li>PREROUTING</li>
-<li>PÓTROUTING</li>
+<li>POSTROUTING</li>
 <li>OUTPUT</li>
 <li>INPUT</li>
 <li>FORWARD</li>
@@ -43,7 +43,7 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 <li>REJECT</li>: tương tự DROP nhưng nó sẽ gởi trả lại cho phía người gởi một thông báo lỗi rằng gói tin đã  bị chặn và loại bỏ
 <li>MASQUERADE</li>: dùng để thực hiện Source Network address Translation. Mặc định thì địa chỉ IP nguồn sẽ giống như IP nguồn của firewall
 ###2.3 Các tham số chuyển mạch (switching)
-<ul> **-t <table>**: Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng</ul>
+<ul>**-t <table>**: Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng</ul>
 <ul>**-A chain** --append:  nối thêm một luật vào cuối chuỗi (chain) </ul>
 <ul>**-C chain** --check: kiểm tra luật đã có chưa </ul>
 <ul>**-D chain rulenum** --delete: xóa luật nào đó trong chain</ul>
@@ -72,11 +72,7 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 #3. 20 ví dụ về IPTABLES cho New SysAdmins
 ##3.1 Hiển thị trạng thái của Firewall
 **iptables -L -n -v**
-trong đó:
-<li>**-L**: hiện danh sách các luật hiện có</li>
-<li>**-n**: hiện dưới dạng số</li>
-<li>**-v**: hiện các luật một cách chi tiết</li>
-<ul> -L là 
+
 
 
 
