@@ -44,7 +44,8 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 ###2.3 Các tham số chuyển mạch (switching)
 <ul> 
 **-t <table>** 
-: Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng</ul>
+: Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng
+</ul>
 <ul> 
 **-A chain** --append:  nối thêm một luật vào cuối chuỗi (chain) </ul>
 <ul> **-C chain** --check: kiểm tra luật đã có chưa </ul>
