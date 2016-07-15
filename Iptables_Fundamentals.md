@@ -12,17 +12,14 @@ Git này Tocxu viết khi tìm hiểu và thực hành với ubuntu desktop 15.1
 ##2.2 Structure
 the Iptable of iptables is: Tables -> Chains -> Rules
 *Tables 1*
-|Chain1|
-|------|
-|->Rule 1|
-|->Rule 2|
-|--------|
-|Chain 2|
-|-------|
-|->Rule 1|
+| Chain1 | Chain 2 |
+|--------|---------|
+| ->Rule 1 | ->Rule 1 |
+| ->Rule 2 |
+
 *Table 2*
-|Chain 1|
-|-------|
+| Chain 1 |
+|---------|
 |-> Rule 1|
 |---------|
 |Chain 2|
