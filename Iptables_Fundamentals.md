@@ -69,7 +69,7 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 <ul> **-p proto** --protocol: giao thức áp dụng</ul>
 #3. 20 ví dụ về IPTABLES cho New SysAdmins
 ##3.1 Hiển thị trạng thái của Firewall
-**iptables -L -n -v**
+<ul>**iptables -L -n -v** </ul>
 
 
 
