@@ -4,7 +4,6 @@ Trên CentOS nó hoạt động như một service nhưng trên ubuntu Desktop t
 Git này Tocxu viết khi tìm hiểu và thực hành với ubuntu desktop 15.10 
 #2. Sử dụng
 ##2.1 Cài đặt IPTABLES
-
 	*sudo apt-get install iptables*
 	*sudo apt-get install ufw*
 **trên CentOS thì:** 
@@ -43,8 +42,11 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 <li>REJECT</li>: tương tự DROP nhưng nó sẽ gởi trả lại cho phía người gởi một thông báo lỗi rằng gói tin đã  bị chặn và loại bỏ
 <li>MASQUERADE</li>: dùng để thực hiện Source Network address Translation. Mặc định thì địa chỉ IP nguồn sẽ giống như IP nguồn của firewall
 ###2.3 Các tham số chuyển mạch (switching)
-<ul> **-t <table>** : Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng</ul>
-<ul> **-A chain** --append:  nối thêm một luật vào cuối chuỗi (chain) </ul>
+<ul> 
+**-t <table>** 
+: Nếu không có tables nào, thì bảng FILTER sẽ được áp dụng</ul>
+<ul> 
+**-A chain** --append:  nối thêm một luật vào cuối chuỗi (chain) </ul>
 <ul> **-C chain** --check: kiểm tra luật đã có chưa </ul>
 <ul> **-D chain rulenum** --delete: xóa luật nào đó trong chain</ul>
 <ul> **-F [chain]** --flush : xóa hết các luật có trong bảng hoặc trong chain nào đó</ul>
