@@ -48,28 +48,28 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 </ul>
 <ul> 
 **-A chain** --append:  nối thêm một luật vào cuối chuỗi (chain) </ul>
-<ul> **-C chain** --check: kiểm tra luật đã có chưa </ul>
-<ul> **-D chain rulenum** --delete: xóa luật nào đó trong chain</ul>
-<ul> **-F [chain]** --flush : xóa hết các luật có trong bảng hoặc trong chain nào đó</ul>
-<ul> **-E old-chain new-chain** --rename-chain: thay tên chain</ul>
-<ul> **-I chain [rulenum]** --insert: thêm vài chain một luật mới ở vị trí chỉ đinh (mặc định 1 là luật đầu tiên)</ul>
-<ul> **-L [chain [rulenum]]** --list-rule: liệt kê các luật có trong một chain hoặc tất cả các chain</ul>
-<ul> **-N chain** --new: tạo một chain mới do người dùng định nghĩa </ul>
-<ul> **-P chain target** --policy: thay đổi luật của chain sang một target,(khi muốn đổi tất cả các luật trong chain nào đó có cùng một target)</ul>
-<ul> **-R chain rulenum** --replace : thay đổi thứ tự luật trong chain</ul>
-<ul> **-S [chain [rulenum]]** --list-rules: in (print) các quy tắc vào trong một chain hoặc tất cả các chain</ul>
-<ul> **-Z [chain [rulenum]]** --zero </ul>
-<ul> **-X [chain]** --delete-chain: xóa chain do người dùng định nghĩa</ul>
+<ul> -C chain --check: kiểm tra luật đã có chưa </ul>
+<ul> -D chain rulenum --delete: xóa luật nào đó trong chain</ul>
+<ul> -F [chain] --flush : xóa hết các luật có trong bảng hoặc trong chain nào đó</ul>
+<ul> -E old-chain new-chain --rename-chain: thay tên chain</ul>
+<ul> -I chain [rulenum] --insert: thêm vài chain một luật mới ở vị trí chỉ đinh (mặc định 1 là luật đầu tiên)</ul>
+<ul> -L [chain [rulenum]] --list-rule: liệt kê các luật có trong một chain hoặc tất cả các chain</ul>
+<ul> -N chain --new: tạo một chain mới do người dùng định nghĩa </ul>
+<ul> -P chain target --policy: thay đổi luật của chain sang một target,(khi muốn đổi tất cả các luật trong chain nào đó có cùng một target)</ul>
+<ul> -R chain rulenum --replace : thay đổi thứ tự luật trong chain</ul>
+<ul> -S [chain [rulenum]] --list-rules: in (print) các quy tắc vào trong một chain hoặc tất cả các chain</ul>
+<ul> -Z [chain [rulenum]] --zero </ul>
+<ul> -X [chain] --delete-chain: xóa chain do người dùng định nghĩa</ul>
 ###Các tham số OPtion
-<ul> **-j target** --jump: hành động cho luật</ul>
-<ul> **-v** --verbose: hiển thị thông tin chi tiết cho luật</ul>
-<ul> **-n** --numeric: hiển thị địa chỉ và cổng dưới dạng số</ul>
-<ul> **-s address[/mask][...]** --source: địa chỉ nguồn</ul>
-<ul> **-d address[/mask][...]** --destiantion: địa chỉ đích</ul>
-<ul> **-p proto** --protocol: giao thức áp dụng</ul>
+<ul> -j target --jump: hành động cho luật</ul>
+<ul> -v --verbose: hiển thị thông tin chi tiết cho luật</ul>
+<ul> -n --numeric: hiển thị địa chỉ và cổng dưới dạng số</ul>
+<ul> -s address[/mask][...] --source: địa chỉ nguồn</ul>
+<ul> -d address[/mask][...] --destiantion: địa chỉ đích</ul>
+<ul> -p proto --protocol: giao thức áp dụng</ul>
 #3. 20 ví dụ về IPTABLES cho New SysAdmins
 ##3.1 Hiển thị trạng thái của Firewall
-<ul>**iptables -L -n -v** </ul>
+**iptables -L -n -v**
 
 
 
