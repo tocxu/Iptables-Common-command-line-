@@ -55,12 +55,12 @@ ChỉBlock traffic đến thêm luật:
 >iptables A INPUT -i eth1 -s 10.0.0.0/8 -j DROP
 
 Giải địa chỉ IPv4 cho địa chỉ Private Network (hãy chắc chắn rằng bạn block chúng trên public interface)
-*10.0.0.0/8 -j(A)
-*172.16.0.0/12 (B)
-*192.168.0.0/16 (C)
-*224.0.0.0/4 (MULTICAST D)
-*224.0.0.0/5(E)
-*127.0.0.0/8 (LOOPBACK)
+* 10.0.0.0/8 -j(A)
+* 172.16.0.0/12 (B)
+* 192.168.0.0/16 (C)
+* 224.0.0.0/4 (MULTICAST D)
+* 224.0.0.0/5(E)
+* 127.0.0.0/8 (LOOPBACK)
 
 ##1.8 Block một IP
 >iptables -A INPUT -s 1.2.3.4 -j DROP
