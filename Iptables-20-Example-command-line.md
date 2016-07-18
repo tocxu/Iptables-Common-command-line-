@@ -1,4 +1,4 @@
-#20 ví dụ về IPTABLES cho New SysAdmins
+#21 ví dụ về IPTABLES cho New SysAdmins
 ##1.1 Hiển thị trạng thái của Firewall
 **iptables -L -n -v**
 Hiển thịtheo số thứ tự luật:
@@ -64,4 +64,4 @@ Bạn có thể sử dụng bằng một subnet:
 **whois 69.171.228.40 | grep CIDR**
 
 **iptables -A OUTPUT -p tcp -d 69.171.224.0/19 -j DROP**
-**iptables -A OUTPUT -p tcp -d facebook.com -j DROP**
+**iptables -A OUTPUT -p tcp -d facebook.com -j DROP**1
