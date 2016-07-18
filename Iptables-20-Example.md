@@ -91,4 +91,4 @@ Bạn có thể sử dụng bằng một subnet:
 ##1.11 Block Outgoing IP Address
 >host -t a cyberciti.biz
 
-<imgsrc="https://www.ibm.com/developerworks/library/l-using-kvm/">
+<img src="https://www.ibm.com/developerworks/library/l-using-kvm/">
