@@ -1,4 +1,4 @@
-PTABLES cho New SysAdmins
+20 Example IPTABLES cho New SysAdmins
 ##1.1 Hiển thị trạng thái của Firewall
 >iptables -L -n -v
 
@@ -87,3 +87,8 @@ Bạn có thể sử dụng bằng một subnet:
 
 >iptables -A OUTPUT -p tcp -d 69.171.224.0/19 -j DROP
 >iptables -A OUTPUT -p tcp -d facebook.com -j DROP
+
+##1.11 Block Outgoing IP Address
+>host -t a cyberciti.biz
+
+<imgsrc="https://www.ibm.com/developerworks/library/l-using-kvm/">
