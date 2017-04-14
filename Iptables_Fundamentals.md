@@ -63,4 +63,5 @@ Target là một hành động sẽ diễn ra khi một gói dữ liệu đượ
 <ul> -s address[/mask][...] --source: địa chỉ nguồn</ul>
 <ul> -d address[/mask][...] --destiantion: địa chỉ đích</ul>
 <ul> -p proto --protocol: giao thức áp dụng</ul>
-
+###path in centos:
+<ul>/etc/sysconfig/iptables </ul>
